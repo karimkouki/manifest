@@ -1,0 +1,57 @@
+{
+  "manifest_version": 2,
+
+  "background": {
+    "scripts": ["retail-extension/background.js","retail-extension/jquery-3.1.0.min.js"],
+    "persistent": false
+
+  },
+
+  "name": "Alert",
+  "description": "This extension Agena3000.",
+  "version": "4.0.0",
+  "minimum_chrome_version": "46",
+  "icons": {
+    "128": "retail-extension/img/img.png",
+    "48": "retail-extension/img/img.png",
+    "16": "retail-extension/img/img2.png"
+
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+
+  "browser_action": {
+    "default_icon": "retail-extension/img/img.png",
+    "default_popup": "retail-extension/popup.html"
+  },
+
+
+
+  "permissions": [
+    "storage",
+    "alarms",
+    "tabs",
+    "activeTab",
+    "unlimitedStorage",
+    "webNavigation",
+    "notifications",
+    "contextMenus",
+    "http://myapp.appspot.com/*",
+    "http://10.20.38.194/api/login",
+    "http://10.20.38.194/api/societes/indicateurs?item=produit",
+    "http://localhost:*"
+
+
+
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*","https://*/*","*://*/*"],
+
+        "js": [ "/retail-front/src/index.js"]
+
+
+    }
+  ],
+
+  "options_page": "retail-extension/options.html"
+}
